@@ -1,0 +1,75 @@
+.travel {
+  position: fixed;
+  inset: 0;
+  z-index: 35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Merkezden yayılan ışık patlaması */
+.travel-flash {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 70vmax;
+  height: 70vmax;
+  margin: -35vmax 0 0 -35vmax;
+  border-radius: 50%;
+  filter: blur(30px);
+}
+
+/* Hız çizgileri */
+.travel-streaks {
+  position: absolute;
+  inset: 0;
+}
+
+.travel-streaks span {
+  position: absolute;
+  top: -10%;
+  width: 1px;
+  height: 120%;
+  transform-origin: center;
+  opacity: 0;
+}
+
+/* Başlık */
+.travel-caption {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.travel-index {
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.45em;
+  text-indent: 0.45em;
+  text-shadow: 0 0 20px currentColor;
+}
+
+.travel-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 5vw, 2rem);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-shadow:
+    0 0 40px rgba(120, 190, 255, 0.6),
+    0 0 100px rgba(77, 159, 255, 0.28);
+}
+
+.travel-bar {
+  width: min(240px, 60vw);
+  height: 1px;
+  transform-origin: left center;
+  box-shadow: 0 0 12px rgba(124, 196, 255, 0.5);
+}

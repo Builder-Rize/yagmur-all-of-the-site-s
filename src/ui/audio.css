@@ -1,0 +1,92 @@
+.audio-btn {
+  position: fixed;
+  top: clamp(1.4rem, 4vh, 2.4rem);
+  right: clamp(1.4rem, 4vw, 2.6rem);
+  z-index: 40;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+
+  background: rgba(8, 18, 40, 0.4);
+  border: 1px solid rgba(124, 196, 255, 0.16);
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition:
+    border-color 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out),
+    background 0.5s var(--ease-out);
+}
+
+.audio-btn:hover,
+.audio-btn:focus-visible {
+  border-color: rgba(124, 196, 255, 0.5);
+  background: rgba(12, 26, 54, 0.6);
+  box-shadow: 0 0 26px rgba(77, 159, 255, 0.24);
+  outline: none;
+}
+
+/* --- Ekolayzır çubukları --- */
+
+.audio-bars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5px;
+  height: 15px;
+}
+
+.audio-bars i {
+  display: block;
+  width: 2px;
+  height: 100%;
+  border-radius: 1px;
+  background: var(--electric-soft);
+  box-shadow: 0 0 8px var(--glow-1);
+  transform-origin: center;
+  animation: audio-pulse 1.15s ease-in-out infinite;
+}
+
+@keyframes audio-pulse {
+  0%, 100% { transform: scaleY(0.28); opacity: 0.5; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+/* --- Sessiz durumu --- */
+
+.audio-btn.is-muted .audio-bars i {
+  animation: none;
+  transform: scaleY(0.2);
+  background: rgba(150, 190, 235, 0.35);
+  box-shadow: none;
+}
+
+/* Sessizken üstünü çizen ince çizgi */
+.audio-btn.is-muted::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 1px;
+  background: rgba(160, 195, 240, 0.45);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+@media (max-width: 640px) {
+  .audio-btn {
+    width: 44px;
+    height: 44px;
+    top: 1.1rem;
+    right: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audio-bars i { animation: none; transform: scaleY(0.6); }
+}

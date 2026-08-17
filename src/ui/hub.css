@@ -1,0 +1,273 @@
+.hub-ui {
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+}
+
+/* --- Üst sol kimlik --- */
+
+.hub-header {
+  position: absolute;
+  top: clamp(1.5rem, 4vh, 2.6rem);
+  left: clamp(1.5rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hub-mark {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-display);
+  font-size: clamp(0.62rem, 1.6vw, 0.74rem);
+  font-weight: 400;
+  letter-spacing: 0.42em;
+  color: rgba(214, 236, 255, 0.82);
+  text-shadow: 0 0 18px rgba(77, 159, 255, 0.3);
+}
+
+.hub-mark span {
+  color: var(--electric);
+  letter-spacing: 0;
+  text-shadow: 0 0 14px var(--glow-1);
+}
+
+.hub-mark-sub {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 200;
+  letter-spacing: 0.3em;
+  color: rgba(150, 190, 235, 0.3);
+}
+
+/* --- Alt orta bilgi --- */
+
+.hub-footer {
+  position: absolute;
+  bottom: clamp(2rem, 6vh, 3.4rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(560px, calc(100% - 3rem));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 7.5rem;
+  text-align: center;
+}
+
+.hub-focus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.hub-focus-index {
+  font-family: var(--font-display);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  text-shadow: 0 0 16px currentColor;
+  opacity: 0.85;
+}
+
+.hub-focus-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4.4vw, 1.75rem);
+  font-weight: 300;
+  letter-spacing: 0.07em;
+  color: #fff;
+  text-shadow:
+    0 0 30px rgba(77, 159, 255, 0.45),
+    0 0 70px rgba(77, 159, 255, 0.2);
+}
+
+.hub-focus-desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.76rem, 2.6vw, 0.88rem);
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+  color: rgba(196, 222, 255, 0.62);
+  max-width: 30ch;
+}
+
+.hub-focus-tag {
+  margin-top: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 200;
+  letter-spacing: 0.24em;
+  text-transform: lowercase;
+  color: rgba(140, 180, 230, 0.28);
+}
+
+.hub-hint {
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 200;
+  letter-spacing: 0.28em;
+  text-transform: lowercase;
+  color: rgba(150, 190, 235, 0.3);
+  animation: hint-breathe 4.5s ease-in-out infinite;
+}
+
+@keyframes hint-breathe {
+  0%, 100% { opacity: 0.32; }
+  50% { opacity: 0.68; }
+}
+
+/* --- Sağ kenar ilerleme --- */
+
+.hub-progress {
+  position: absolute;
+  top: 50%;
+  right: clamp(1.2rem, 3.5vw, 2.6rem);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  padding-right: 0.9rem;
+  border-right: 1px solid rgba(124, 196, 255, 0.14);
+}
+
+.hub-progress-label {
+  font-family: var(--font-body);
+  font-size: 0.54rem;
+  font-weight: 200;
+  letter-spacing: 0.3em;
+  text-transform: lowercase;
+  color: rgba(150, 190, 235, 0.3);
+}
+
+.hub-progress-count {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: rgba(214, 236, 255, 0.75);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 16px rgba(77, 159, 255, 0.3);
+}
+
+.hub-progress-count em {
+  font-style: normal;
+  font-size: 0.62em;
+  color: rgba(150, 190, 235, 0.35);
+}
+
+/* --- Köşe çerçeveleri --- */
+
+.hub-corners .c {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(124, 196, 255, 0.16);
+}
+
+.hub-corners .tl { top: 18px; left: 18px; border-right: none; border-bottom: none; }
+.hub-corners .tr { top: 18px; right: 18px; border-left: none; border-bottom: none; }
+.hub-corners .bl { bottom: 18px; left: 18px; border-right: none; border-top: none; }
+.hub-corners .br { bottom: 18px; right: 18px; border-left: none; border-top: none; }
+
+/* ------------------------------------------------------------------ */
+/*  3B sahne içindeki portal etiketleri (drei Html)                    */
+/* ------------------------------------------------------------------ */
+
+.portal-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  width: 220px;
+  text-align: center;
+  opacity: 0.42;
+  transform: translateY(4px);
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.55s var(--ease-out);
+  user-select: none;
+}
+
+.portal-label.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portal-label-index {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-indent: 0.4em;
+  color: rgba(124, 196, 255, 0.75);
+}
+
+.portal-label-title {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 300;
+  letter-spacing: 0.09em;
+  color: #eaf3ff;
+  text-shadow: 0 0 20px rgba(77, 159, 255, 0.5);
+  white-space: nowrap;
+}
+
+.portal-label-desc {
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  color: rgba(190, 218, 255, 0.5);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.6s var(--ease-out),
+    opacity 0.5s var(--ease-out);
+}
+
+.portal-label.is-active .portal-label-desc {
+  max-height: 3rem;
+  opacity: 1;
+}
+
+/* --- Mobil --- */
+
+@media (max-width: 768px) {
+  .hub-footer {
+    min-height: 8.5rem;
+    bottom: 2rem;
+  }
+
+  .hub-progress {
+    top: auto;
+    bottom: clamp(2rem, 6vh, 3.4rem);
+    right: 1.2rem;
+    transform: none;
+    border-right: none;
+    padding-right: 0;
+    align-items: flex-end;
+  }
+
+  .hub-progress-count { font-size: 0.9rem; }
+
+  .portal-label { width: 150px; }
+  .portal-label-title { font-size: 0.82rem; white-space: normal; line-height: 1.35; }
+  .portal-label-desc { display: none; }
+  .portal-label-index { font-size: 0.55rem; letter-spacing: 0.3em; text-indent: 0.3em; }
+
+  .hub-corners .c { width: 14px; height: 14px; }
+  .hub-corners .tl, .hub-corners .tr { top: 12px; }
+  .hub-corners .bl, .hub-corners .br { bottom: 12px; }
+  .hub-corners .tl, .hub-corners .bl { left: 12px; }
+  .hub-corners .tr, .hub-corners .br { right: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hub-hint { animation: none; opacity: 0.5; }
+}
